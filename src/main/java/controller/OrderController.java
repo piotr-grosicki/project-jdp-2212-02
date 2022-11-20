@@ -1,4 +1,4 @@
-package com.kodilla.ecommercee;
+package controller;
 
 public class OrderController {
 }

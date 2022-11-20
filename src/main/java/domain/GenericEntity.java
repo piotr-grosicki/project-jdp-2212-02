@@ -1,4 +1,4 @@
-package com.kodilla.ecommercee;
+package domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
