@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.controller;
 
+
 import com.kodilla.ecommercee.domain.CartDto;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,4 +34,4 @@ public class CartController {
     public CartDto updateCart(@PathVariable long cartId) {
         return new CartDto(1L, 2.5, new ArrayList<>(), 2);
     }
-}
+
