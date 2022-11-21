@@ -16,7 +16,7 @@ public class GroupController {
 
     @GetMapping(value = "{groupId}")
     public GroupDto getGroup(@PathVariable long id){
-        return new GroupDto();
+        return new GroupDto(1L,"GetNameTest");
     }
 
 
@@ -33,7 +33,7 @@ public class GroupController {
 
     @PutMapping
     public GroupDto updateGroup(GroupDto groupDto){
-        return new GroupDto();
+        return new GroupDto(1L,"UpdateNameTest");
     }
 
     @DeleteMapping(value = "{groupId}")
