@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/shop/order")
-@RequiredArgsConstructor
 public class OrderController {
 
 @GetMapping
