@@ -16,7 +16,7 @@ import java.util.List;
 public class GroupController {
 
     @GetMapping(value = "{groupId}")
-    public GroupDto getGroup(@PathVariable long id){
+    public GroupDto getGroup(@PathVariable long groupId){
         return new GroupDto(1L,"GetNameTest");
     }
 
@@ -28,12 +28,12 @@ public class GroupController {
 
 
     @PostMapping
-    public void createGroup(GroupDto groupDto){
+    public void createGroup(@RequestBody GroupDto groupDto){
 
     }
 
     @PutMapping
-    public GroupDto updateGroup(GroupDto groupDto){
+    public GroupDto updateGroup(@RequestBody GroupDto groupDto){
         return new GroupDto(1L,"UpdateNameTest");
     }
 
