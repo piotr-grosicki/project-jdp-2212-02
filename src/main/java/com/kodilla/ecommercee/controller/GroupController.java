@@ -2,6 +2,7 @@ package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.GroupDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/shop/group")
 @RequiredArgsConstructor
-@Service
+@Controller
 public class GroupController {
 
     @GetMapping(value = "{groupId}")
