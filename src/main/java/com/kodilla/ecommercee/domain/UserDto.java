@@ -17,14 +17,11 @@ public class UserDto {
     private String name;
     private String lastName;
     private String phone;
-
     private Date birth;
     private String email;
 
 
-    private LocalDate birth;
-    private String email;
-    private boolean isBlocked;
+
 
 }
 
