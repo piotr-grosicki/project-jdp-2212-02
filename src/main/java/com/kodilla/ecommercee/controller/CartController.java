@@ -17,7 +17,7 @@ public class CartController {
 
     @GetMapping(value = "{cartId}")
     public CartDto getCart(@PathVariable long cartId) {
-        return new CartDto(1,3.4, new ArrayList<>(), 1L);
+        return new CartDto(1, 3.4, new ArrayList<>(), 1L);
     }
 
     @DeleteMapping(value = "{cartId}")
@@ -27,11 +27,12 @@ public class CartController {
 
     @PostMapping
     public CartDto createCart() {
-        return new CartDto(1L,5.5, new ArrayList<>(), 1L);
+        return new CartDto(1L, 5.5, new ArrayList<>(), 1L);
     }
 
     @PutMapping(value = "{cartId}")
     public CartDto updateCart(@PathVariable long cartId) {
         return new CartDto(1L, 2.5, new ArrayList<>(), 2);
     }
+}
 
