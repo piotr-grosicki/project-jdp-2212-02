@@ -5,7 +5,7 @@ package com.kodilla.ecommercee.controller;
 import com.kodilla.ecommercee.domain.OrderDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/shop/order")
 @RequiredArgsConstructor
-@Controller
+@Service
 public class OrderController {
 
 @GetMapping
