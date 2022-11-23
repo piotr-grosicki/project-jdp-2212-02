@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("v1/carts")
+@RequestMapping("shop/carts")
 public class CartController {
 
     @GetMapping
-    public CartDto getCards() {
+    public CartDto getCarts() {
         return new CartDto(1L, 2.0, new ArrayList<>(), 1L);
     }
 
@@ -25,14 +25,14 @@ public class CartController {
         return new CartDto(1L, 2.2, new ArrayList<>(), 1L);
     }
 
-    @PostMapping
-    public CartDto createCart() {
+    @PostMapping(value = "{cardId}")
+    public CartDto createCart(@PathVariable long cardId) {
         return new CartDto(1L, 5.5, new ArrayList<>(), 1L);
     }
 
     @PutMapping(value = "{cartId}")
     public CartDto updateCart(@PathVariable long cartId) {
-        return new CartDto(1L, 2.5, new ArrayList<>(), 2);
+        return new CartDto(1L, 2.5, new ArrayList<>(), 1L);
     }
 }
 
