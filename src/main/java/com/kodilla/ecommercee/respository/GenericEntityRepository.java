@@ -1,6 +1,6 @@
-package respository;
+package com.kodilla.ecommercee.respository;
 
-import domain.GenericEntity;
+import com.kodilla.ecommercee.domain.GenericEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
