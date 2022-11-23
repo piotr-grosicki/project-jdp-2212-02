@@ -14,6 +14,7 @@ import java.util.List;
 @Controller
 public class GroupController {
 
+
     @GetMapping(value = "{groupId}")
     public GroupDto getGroup(@PathVariable long groupId){
         return new GroupDto(1L,"GetNameTest");
