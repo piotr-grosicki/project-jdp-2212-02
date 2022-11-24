@@ -25,12 +25,12 @@ public class CartController {
         return new CartDto(1L, 2.2, new ArrayList<>(), 1L);
     }
 
-    @PostMapping(value = "{cartId}")
+    @PostMapping()
     public CartDto createCart(@RequestBody CartDto cartDto) {
         return new CartDto(1L, 5.5, new ArrayList<>(), 1L);
     }
 
-    @PutMapping(value = "{cartId}")
+    @PutMapping()
     public CartDto updateCart(@RequestBody CartDto cartDto) {
         return new CartDto(1L, 2.5, new ArrayList<>(), 1L);
     }
