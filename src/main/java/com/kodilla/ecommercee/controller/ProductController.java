@@ -1,6 +1,6 @@
-package com.kodilla.ecommercee.controller;
+package controller;
 
-import com.kodilla.ecommercee.domain.ProductsDto;
+import domain.ProductsDto;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
