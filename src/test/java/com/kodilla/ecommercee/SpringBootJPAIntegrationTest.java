@@ -20,7 +20,7 @@ public class SpringBootJPAIntegrationTest {
     @Autowired
     private GenericEntityRepository genericEntityRepository;
 
-    @Test
+   @Test
     public void givenGenericEntityRepository_whenSaveAndRetreiveEntity_thenOK() {
         GenericEntity genericEntity = genericEntityRepository
                 .save(new GenericEntity("test"));
