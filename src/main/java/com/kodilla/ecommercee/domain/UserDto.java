@@ -19,6 +19,7 @@ public class UserDto {
     private String phone;
     private LocalDate birth;
     private String email;
+    private boolean isBlocked;
 
 
 
