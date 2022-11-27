@@ -11,5 +11,5 @@ import lombok.ToString;
 @ToString
 public class OrderDto {
     private Long id;
-
+    private String testname;
 }
