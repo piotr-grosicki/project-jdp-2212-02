@@ -10,5 +10,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class OrderDto {
-
+    private Long id;
+    private String testname;
 }

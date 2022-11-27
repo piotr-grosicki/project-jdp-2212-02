@@ -1,11 +1,8 @@
 package com.kodilla.ecommercee.controller;
 
-
-
 import com.kodilla.ecommercee.domain.OrderDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -22,22 +19,25 @@ public class OrderController {
 }
     @GetMapping(value = "{orderId}")
     public OrderDto getOrder(@PathVariable Long orderId){
-    return new OrderDto();
+        System.out.println("Get");
+    return new OrderDto(1L,"Order Test");
 
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createOrder(@RequestBody OrderDto orderDto){
-
+        System.out.println("Post");
     }
 
     @PutMapping
-    public OrderDto updateOrder(@RequestBody  OrderDto orderDto){
-        return new OrderDto();
+    public OrderDto updateOrder(@RequestBody OrderDto orderDto){
+        System.out.println("put");
+        return new OrderDto(1L,"Order Test");
+
     }
 
     @DeleteMapping(value = "{orderId}")
     public void deleteOrder(@PathVariable long orderId){
-
+        System.out.println("Delete");
     }
 }
