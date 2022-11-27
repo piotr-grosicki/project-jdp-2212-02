@@ -1,7 +1,6 @@
 package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.ProductsDto;
-
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +13,7 @@ import java.util.List;
 public class ProductController {
 
     @GetMapping(value = "{productsId}")
-    public ProductsDto getProducts(@PathVariable long id){
-        return new ProductsDto(1,"kurtka", 321,250);
+    public ProductsDto getProducts(@PathVariable long id){return new ProductsDto(1,"kurtka", 321,250);
     }
 
 
@@ -34,7 +32,7 @@ public class ProductController {
     }
 
     @DeleteMapping(value = "{productsId}")
-    public void deleteProducts(@PathVariable long productsId){
+    public void deleteProducts(@PathVariable long ProductsId){
 
     }
 }
