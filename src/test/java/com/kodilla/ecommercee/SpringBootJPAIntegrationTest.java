@@ -1,7 +1,9 @@
 package com.kodilla.ecommercee;
 
 import com.kodilla.ecommercee.domain.GenericEntity;
-import org.junit.Test;
+
+import com.kodilla.ecommercee.repository.GenericEntityRepository;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,7 +22,7 @@ public class SpringBootJPAIntegrationTest {
     @Autowired
     private GenericEntityRepository genericEntityRepository;
 
-    @Test
+   @Test
     public void givenGenericEntityRepository_whenSaveAndRetreiveEntity_thenOK() {
         GenericEntity genericEntity = genericEntityRepository
                 .save(new GenericEntity("test"));

@@ -36,4 +36,6 @@ public class ProductController {
     public void deleteProducts(@PathVariable long productsId){
 
     }
+
+public class ProductController {
 }
