@@ -1,6 +1,7 @@
 package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.ProductDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,25 +10,25 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/shop/products")
-@Service
+@RequiredArgsConstructor
 public class ProductController {
+
+    @GetMapping
+    public ProductDto GetProducts(){
+        return new ProductDto(1,"kurtka", 35,800);
+    }
 
     @GetMapping(value = "{productsId}")
     public ProductDto getProducts(@PathVariable long id){
-        return new ProductDto(1,"kurtka", 321,250);
+        return new ProductDto(2,"kurtka", 321,250);
     }
 
 
-    @GetMapping
-    public List<ProductDto> GetProducts(){
-        return new ArrayList<ProductDto>();
-    }
-
-    @PostMapping
+    @PostMapping(value = "{productId}")
     public void createProducts(ProductDto productsDto){
     }
 
-    @PutMapping
+    @PutMapping(value = "{productId}")
     public ProductDto updateProducts(ProductDto productsDto){
         return new ProductDto(1,"kurtka", 1, 250);
     }
