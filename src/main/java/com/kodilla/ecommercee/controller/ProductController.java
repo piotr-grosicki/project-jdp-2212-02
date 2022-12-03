@@ -25,11 +25,11 @@ public class ProductController {
 
 
     @PostMapping(value = "{productId}")
-    public void createProducts(ProductDto productsDto){
+    public void createProducts(@RequestBody ProductDto productsDto){
     }
 
     @PutMapping(value = "{productId}")
-    public ProductDto updateProducts(ProductDto productsDto){
+    public ProductDto updateProducts(@RequestBody ProductDto productsDto){
         return new ProductDto(1,"kurtka", 1, 250);
     }
 
