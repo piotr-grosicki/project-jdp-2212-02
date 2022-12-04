@@ -12,7 +12,7 @@ import java.util.List;
 public class CartDto {
     private long id;
     private double totalPrice;
-    private List<ProductDto> ordersList;
+    private List<ProductDto> productDtoList;
     private long userId;
 
 }
