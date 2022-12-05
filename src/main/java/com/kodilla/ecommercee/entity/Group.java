@@ -24,10 +24,7 @@ public class Group {
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany(
-            targetEntity = Product.class
-
-    )
+    @OneToMany(targetEntity = Product.class)
     private List<Product> products = new ArrayList<>();
 
 }
