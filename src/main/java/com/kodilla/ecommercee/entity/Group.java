@@ -17,7 +17,7 @@ public class Group {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "GROUP_ID", unique = true)
+    @Column(name = "GROUP_ID")
     private Long id;
 
     @NotNull
@@ -25,8 +25,8 @@ public class Group {
     private String name;
 
     @OneToMany(
-            targetEntity = Product.class,
-            mappedBy = "GROUP"
+            targetEntity = Product.class
+
     )
     private List<Product> products = new ArrayList<>();
 
