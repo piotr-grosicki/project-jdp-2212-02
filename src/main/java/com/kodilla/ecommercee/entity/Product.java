@@ -16,6 +16,6 @@ public class Product {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "PRODUCT_ID", unique = true)
+    @Column(name = "product_id", unique = true)
     private Long id;
 }
