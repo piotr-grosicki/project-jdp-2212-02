@@ -4,9 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,5 +14,10 @@ import javax.persistence.Id;
 public class Product {
     @Id
     @GeneratedValue
-    private long id;
+    @Column(name = "PRODUCT_ID", unique = true)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "GROUP_ID")
+    private Group group;
 }
