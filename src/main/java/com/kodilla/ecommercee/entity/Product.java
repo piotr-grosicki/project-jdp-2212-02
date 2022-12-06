@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -13,7 +14,6 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue
-    @NotNull
     @Column(name = "product_id", unique = true)
     private Long id;
 
