@@ -11,8 +11,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Entity
-@Table(name = "products")
-public class Product {
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue
     @NotNull
