@@ -14,20 +14,20 @@ import java.util.List;
 @Getter
 @Entity(name = "GROUP")
 public class Group {
+
     @Id
     @GeneratedValue
     @NotNull
     @Column(name = "GROUP_ID", unique = true)
     private Long id;
 
-    @NotNull
-    @Column(name = "NAME")
-    private String name;
+
 
     @OneToMany(
             targetEntity = Product.class,
-            mappedBy = "GROUP"
+            mappedBy = "group",
+            cascade = {CascadeType.ALL},
+            fetch = FetchType.LAZY
     )
     private List<Product> products = new ArrayList<>();
-
 }

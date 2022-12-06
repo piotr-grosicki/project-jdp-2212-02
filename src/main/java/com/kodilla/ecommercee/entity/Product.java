@@ -15,10 +15,10 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
-    private Long id;
+    private Long productId;
 
     @Column(name = "product_name")
-    private String name;
+    private String productName;
 
     @ManyToOne
     @JoinColumn(name = "group_id")
@@ -32,3 +32,4 @@ public class Product {
     )
     private List<Cart> carts;
 }
+
