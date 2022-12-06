@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.entity;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,15 +10,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Entity(name = "products")
-public class Product {
+@Entity
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "product_id", unique = true)
+    @Column(name = "user_id", unique = true)
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "GROUP_ID")
-    private Group group;
 }
