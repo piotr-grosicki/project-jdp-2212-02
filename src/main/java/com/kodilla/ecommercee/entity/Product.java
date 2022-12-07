@@ -2,6 +2,7 @@ package com.kodilla.ecommercee.entity;
 
 import lombok.*;
 
+import javax.persistence.Entity;
 import javax.persistence.*;
 import java.util.List;
 
