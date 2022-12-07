@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class OrderController {
     @GetMapping(value = "{orderId}")
     public OrderDto getOrder(@PathVariable Long orderId){
         System.out.println("Get");
-    return new OrderDto(1L, LocalDate.of(2022, 2,15),true,2L, new ArrayList<>());
+    return new OrderDto(1L,"Order Test");
 
     }
 
@@ -33,7 +32,7 @@ public class OrderController {
     @PutMapping
     public OrderDto updateOrder(@RequestBody OrderDto orderDto){
         System.out.println("put");
-        return new OrderDto(1L, LocalDate.of(2022, 2,15),true,2L, new ArrayList<>());
+        return new OrderDto(1L,"Order Test");
 
     }
 
