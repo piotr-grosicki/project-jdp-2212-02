@@ -47,7 +47,7 @@ dependencies {
     runtimeOnly group: 'mysql', name: 'mysql-connector-java', version: '8.0.20'
     implementation('org.springframework.boot:spring-boot-starter-web')
     runtimeOnly('com.h2database:h2')
-    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
+
 
 
 
