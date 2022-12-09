@@ -3,13 +3,8 @@ package com.kodilla.ecommercee.entity;
 import lombok.*;
 
 import javax.persistence.*;
-
 import java.time.LocalDate;
-
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
-import java.util.ArrayList;
-
 import java.util.List;
 
 @NoArgsConstructor
