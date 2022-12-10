@@ -26,8 +26,8 @@ public class Product {
     @Column(name = "price")
     private double price;
 
-    @Column(name = "abailability")
-    private boolean abailability;
+    @Column(name = "availability")
+    private boolean availability;
 
     @ManyToOne
     @JoinColumn(name = "group_id")
