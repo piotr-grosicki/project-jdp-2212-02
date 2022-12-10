@@ -38,16 +38,14 @@ public class Product {
             name = "cart_has_product",
             joinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "product_id")},
             inverseJoinColumns = {@JoinColumn(name = "cart_id", referencedColumnName = "cart_id")})
-    private List<Cart> Cart_id  = new ArrayList<Cart>();
+    private List<Cart> carts;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "order",
             joinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "product_id")},
             inverseJoinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "order_id")})
-    private List<Order> order_id  = new ArrayList<Order>();
-
-
+    private List<Order> orders;
 
 }
 
