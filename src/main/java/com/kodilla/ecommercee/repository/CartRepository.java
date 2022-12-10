@@ -1,6 +1,6 @@
 package com.kodilla.ecommercee.repository;
 
-import com.kodilla.ecommercee.entity.Product;
+import com.kodilla.ecommercee.entity.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,21 +8,17 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface CartRepository extends JpaRepository<Cart, Long> {
 
     @Override
-    List<Product> findAll();
+    List<Cart> findAll();
 
     @Override
-
-    Optional<Product> findById(Long productId);
-
-    @Override
-    Product save(Product product);
+    Optional<Cart> findById(Long cartId);
 
     @Override
-    void deleteById(Long productId);
+    Cart save(Cart cart);
 
-
+    @Override
+    void deleteById(Long cartId);
 }
-
