@@ -31,6 +31,7 @@ public class Order {
     @Column(name = "IS_CONFIRMED")
     private Boolean isConfirmed;
 
+
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "USER_ID")
     private User user;
@@ -44,4 +45,5 @@ public class Order {
             inverseJoinColumns = { @JoinColumn(name = "PRODUCT_ID") }
     )
     private List<Product> products = new ArrayList<>();
+
 }
