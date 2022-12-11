@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 @Entity
 @Table(name = "carts")
 public class Cart {
@@ -24,7 +26,7 @@ public class Cart {
     @Column(name = "totalPrice")
     private Double totalPrice;
 
-    @ManyToMany(cascade = { CascadeType.PERSIST })
+    @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "kodilla_project",
             joinColumns = { @JoinColumn(name = "products_id") },
@@ -32,7 +34,7 @@ public class Cart {
     )
     private List<Product> productList = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 }
