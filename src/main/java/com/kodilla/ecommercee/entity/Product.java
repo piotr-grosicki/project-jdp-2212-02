@@ -6,6 +6,7 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import java.util.ArrayList;
+
 import java.util.List;
 
 @Builder
@@ -29,6 +30,7 @@ public class Product {
     @Column(name = "availability")
     private boolean availability;
 
+
     @ManyToOne
     @JoinColumn(name = "group_id")
     private Group group;
@@ -46,6 +48,7 @@ public class Product {
             joinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "product_id")},
             inverseJoinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "order_id")})
     private List<Order> orders;
+
 
 }
 
