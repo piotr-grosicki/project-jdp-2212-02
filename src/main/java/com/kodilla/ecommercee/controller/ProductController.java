@@ -1,11 +1,15 @@
 package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.ProductDto;
+import com.kodilla.ecommercee.entity.Product;
+import com.kodilla.ecommercee.exception.GroupNotFoundException;
+import com.kodilla.ecommercee.exception.ProductNotFoundException;
+import com.kodilla.ecommercee.mapper.ProductMapper;
+import com.kodilla.ecommercee.service.ProductDbService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -13,28 +17,36 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductController {
 
+    private ProductDbService productDbService;
+    private ProductMapper productMapper;
+
     @GetMapping
-    public ProductDto GetProducts(){
-        return new ProductDto(1,"kurtka", 35,800);
+    public ResponseEntity<List<ProductDto>> GetProducts(){
+        return ResponseEntity.ok(productMapper.mapToProductDtoList(productDbService.getAllProducts()));
     }
 
     @GetMapping(value = "{productsId}")
-    public ProductDto getProducts(@PathVariable long productsId){
-        return new ProductDto(2,"kurtka", 321,250);
+    public ResponseEntity<ProductDto> getProducts(@PathVariable Long productsId) throws  ProductNotFoundException{
+        return ResponseEntity.ok(productMapper.mapToProductDto(productDbService.getProduct(productsId).orElseThrow(ProductNotFoundException::new)));
     }
 
 
-    @PostMapping(value = "{productId}")
-    public void createProducts(@RequestBody ProductDto productsDto){
+    @PostMapping()
+    public ResponseEntity<Void> createProducts(@RequestBody ProductDto productsDto) throws GroupNotFoundException {
+        productDbService.saveProduct(productMapper.mapToProduct(productsDto));
+        return ResponseEntity.ok().build();
     }
 
-    @PutMapping(value = "{productId}")
-    public ProductDto updateProducts(@RequestBody ProductDto productsDto){
-        return new ProductDto(1,"kurtka", 1, 250);
+    @PutMapping()
+    public ResponseEntity<ProductDto> updateProducts(@RequestBody ProductDto productsDto) throws GroupNotFoundException{
+        Product product = productMapper.mapToProduct(productsDto);
+        Product savedProduct = productDbService.saveProduct(product);
+        return ResponseEntity.ok(productMapper.mapToProductDto(savedProduct));
     }
 
     @DeleteMapping(value = "{productsId}")
-    public void deleteProducts(@PathVariable long productsId){
-
+    public ResponseEntity<Void> deleteProducts(@PathVariable Long productsId){
+        productDbService.deleteProduct(productsId);
+        return ResponseEntity.ok().build();
     }
 }
