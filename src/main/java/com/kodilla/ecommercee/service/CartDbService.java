@@ -1,7 +1,6 @@
 package com.kodilla.ecommercee.service;
 
 import com.kodilla.ecommercee.entity.Cart;
-//import com.kodilla.ecommercee.entity.Order;
 import com.kodilla.ecommercee.entity.Order;
 import com.kodilla.ecommercee.entity.Product;
 import com.kodilla.ecommercee.exception.CartNotFoundException;
@@ -34,7 +33,7 @@ public class CartDbService {
         Cart cart = cartRepository.findById(cartId).orElseThrow(CartNotFoundException::new);
         Product product = productRepository.findById(productId).orElseThrow(ProductNotFoundException::new);
 
-        if(product.isAbailability()) {
+        if(product.isAvailability()) {
             cart.getProductList().add(product);
             cartRepository.save(cart);
             return cart;
