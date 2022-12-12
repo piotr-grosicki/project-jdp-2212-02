@@ -5,11 +5,13 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDate;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 @Entity
 @Table(name = "users")
 public class User {
@@ -37,6 +39,16 @@ public class User {
 
     @Column(name = "user_blocked")
     private boolean isBlocked;
+
+    @Column(name = "user_activ")
+    private boolean active;
+
+    @Column(name = "Session_Token")
+    private String sessionToken;
+
+    @Column(name = "Session_Started")
+    private LocalDateTime sessionStartTime;
+
 
     @OneToOne(mappedBy = "user")
     private Cart cart;
