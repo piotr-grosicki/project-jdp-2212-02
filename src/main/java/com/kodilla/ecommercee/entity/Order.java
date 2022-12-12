@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -33,6 +34,8 @@ public class Order {
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "USER_ID")
     private User user;
+
+
 
     @ManyToMany(cascade = { CascadeType.PERSIST })
     @JoinTable(
