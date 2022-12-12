@@ -20,5 +20,5 @@ public class UserService {
     @Autowired
     private final UserRepository uartRepository;
 
-    private final User user;
+   // private final User user;
 }
