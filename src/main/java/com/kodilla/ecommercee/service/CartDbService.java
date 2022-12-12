@@ -20,7 +20,6 @@ public class CartDbService {
     private final CartRepository cartRepository;
     private final ProductRepository productRepository;
     private final OrderDbService orderDbService;
-
     public Cart getCart(final Long cartId) throws CartNotFoundException {
         return cartRepository.findById(cartId).orElseThrow(CartNotFoundException::new);
     }
@@ -49,6 +48,11 @@ public class CartDbService {
     }
     public Order createOrderFromCart(final long cartId) throws CartNotFoundException {
         Cart cart = cartRepository.findById(cartId).orElseThrow(CartNotFoundException::new);
+        List<Product> productList = cart.getProductList();
+        Double totalPrice = Double.valueOf(0);
+        for (Product product : productList) {
+            totalPrice = totalPrice + product.getPrice();
+        }
         Order order = new Order(cart.getId(), LocalDate.now(), true, cart.getUser(), cart.getProductList());
         orderDbService.createOrder(order);
         return order;

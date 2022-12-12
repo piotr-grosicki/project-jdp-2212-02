@@ -3,6 +3,7 @@ package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.CartDto;
 import com.kodilla.ecommercee.domain.OrderDto;
+import com.kodilla.ecommercee.entity.Cart;
 import com.kodilla.ecommercee.entity.Order;
 import com.kodilla.ecommercee.entity.Product;
 import com.kodilla.ecommercee.exception.CartNotFoundException;
@@ -10,6 +11,7 @@ import com.kodilla.ecommercee.exception.ProductNotFoundException;
 import com.kodilla.ecommercee.exception.UserNotFoundException;
 import com.kodilla.ecommercee.mapper.CartMapper;
 import com.kodilla.ecommercee.mapper.OrderMapper;
+import com.kodilla.ecommercee.repository.CartRepository;
 import com.kodilla.ecommercee.service.CartDbService;
 import com.kodilla.ecommercee.service.ProductDbService;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +31,7 @@ public class CartController {
     private final CartMapper cartMapper;
     private final ProductDbService productDbService;
     private final OrderMapper orderMapper;
+    private final CartRepository cartRepository;
 
     @PutMapping("addProduct/{cartId}/{productId}")
     public ResponseEntity<CartDto> addProductToCard(@PathVariable Long cartId, @PathVariable Long productId) throws CartNotFoundException, ProductNotFoundException {
