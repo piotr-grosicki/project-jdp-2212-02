@@ -17,8 +17,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserService {
 
-    @Autowired
-    private final UserRepository uartRepository;
-
-   // private final User user;
+    private final UserRepository userRepository;
+    public User getUserById(Long userId) throws UserNotFoundException {
+        return userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
+    }
 }

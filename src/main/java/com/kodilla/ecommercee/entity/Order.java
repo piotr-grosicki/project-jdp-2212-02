@@ -47,4 +47,6 @@ public class Order {
     private List<Product> products = new ArrayList<>();
 
 
+    public Order(Long id, User userById, LocalDate orderDate, Long id1, List<Product> products, Boolean isConfirmed, Cart card) {
+    }
 }
