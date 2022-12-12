@@ -1,6 +1,7 @@
 package com.kodilla.ecommercee.entity;
 
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -10,15 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Builder
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Entity(name = "products")
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
     @Column(name = "product_id")
     private Long productId;
 
@@ -37,16 +39,27 @@ public class Product {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "cart_has_product",
-            joinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "product_id")},
-            inverseJoinColumns = {@JoinColumn(name = "cart_id", referencedColumnName = "cart_id")})
+            name = "carts_has_product",
+            joinColumns = {@JoinColumn(name = "products_id", referencedColumnName = "product_id")},
+            inverseJoinColumns = {@JoinColumn(name = "cart_id", referencedColumnName = "cart_id")}
+    )
     private List<Cart> carts;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "order",
+
+            name = "orders_has_product",
             joinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "product_id")},
-            inverseJoinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "order_id")})
+            inverseJoinColumns = {@JoinColumn(name = "ORDER_ID", referencedColumnName = "ORDER_ID")}
+    )
     private List<Order> orders;
+
+    public Product(Long productId, String productName, double price, boolean availability, Group group) {
+        this.productId = productId;
+        this.productName = productName;
+        this.price = price;
+        this.availability = availability;
+        this.group = group;
+    }
 }
 
