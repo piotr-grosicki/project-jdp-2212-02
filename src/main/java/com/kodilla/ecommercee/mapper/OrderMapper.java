@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 public class OrderMapper {
 
     CartDbService cartDbService;
-
     public Order mapToOrder(final OrderDto orderDto) throws OrderNotFoundException {
         Order order = new Order();
         orderDto.getId();
@@ -34,5 +33,4 @@ public class OrderMapper {
                 order.getUser().getId(),
                 order.getProducts());
     }
-
 }

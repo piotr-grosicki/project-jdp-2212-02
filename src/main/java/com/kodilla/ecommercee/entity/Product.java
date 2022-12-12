@@ -16,6 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
@@ -29,7 +30,6 @@ public class Product {
 
     @Column(name = "availability")
     private boolean availability;
-
 
     @ManyToOne
     @JoinColumn(name = "group_id")
@@ -48,7 +48,5 @@ public class Product {
             joinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "product_id")},
             inverseJoinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "order_id")})
     private List<Order> orders;
-
-
 }
 
