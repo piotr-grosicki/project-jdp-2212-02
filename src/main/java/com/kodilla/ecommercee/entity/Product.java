@@ -5,6 +5,8 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
+import java.util.ArrayList;
+
 import java.util.List;
 
 @Builder
@@ -25,8 +27,9 @@ public class Product {
     @Column(name = "price")
     private double price;
 
-    @Column(name = "abailability")
-    private boolean abailability;
+    @Column(name = "availability")
+    private boolean availability;
+
 
     @ManyToOne
     @JoinColumn(name = "group_id")
@@ -36,8 +39,16 @@ public class Product {
     @JoinTable(
             name = "cart_has_product",
             joinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "product_id")},
-            inverseJoinColumns = {@JoinColumn(name = "cart_id", referencedColumnName = "cart_id")}
-    )
+            inverseJoinColumns = {@JoinColumn(name = "cart_id", referencedColumnName = "cart_id")})
     private List<Cart> carts;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "order",
+            joinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "product_id")},
+            inverseJoinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "order_id")})
+    private List<Order> orders;
+
+
 }
 
