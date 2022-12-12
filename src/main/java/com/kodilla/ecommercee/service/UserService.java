@@ -18,7 +18,7 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    private final UserRepository uartRepository;
+    private final UserRepository userRepository;
 
     //private final User user;
 }
