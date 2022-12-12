@@ -1,10 +1,6 @@
 package com.kodilla.ecommercee.repository;
 
-<<<<<<< HEAD
-import com.kodilla.ecommercee.entity.Product;
-=======
 import com.kodilla.ecommercee.entity.Cart;
->>>>>>> origin/JDP221202-1_
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
