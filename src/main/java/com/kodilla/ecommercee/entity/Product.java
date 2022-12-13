@@ -16,10 +16,10 @@ import java.util.List;
 @Entity(name = "products")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @NotNull
-    @Column(name = "product_id")
-    private Long productId;
+    @Column(name = "product_id", unique = true)
+    private Long id;
 
     @Column(name = "product_name")
     private String productName;
@@ -51,7 +51,14 @@ public class Product {
     private List<Order> orders;
 
     public Product(Long productId, String productName, double price, boolean availability, Group group) {
-        this.productId = productId;
+        this.id = productId;
+        this.productName = productName;
+        this.price = price;
+        this.availability = availability;
+        this.group = group;
+    }
+
+    public Product(String productName, double price, boolean availability, Group group) {
         this.productName = productName;
         this.price = price;
         this.availability = availability;

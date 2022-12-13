@@ -12,8 +12,6 @@ import com.kodilla.ecommercee.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -48,7 +46,7 @@ public class CartDbService {
 
         //TO______DO______if product is in cart
         List<Product> temporaryProductList = cart.getProductList();
-        Product foundProduct = temporaryProductList.stream().filter(a -> a.getProductId().equals(productId)).findAny().orElseThrow(ProductNotFoundException::new);
+        Product foundProduct = temporaryProductList.stream().filter(a -> a.getId().equals(productId)).findAny().orElseThrow(ProductNotFoundException::new);
         cart.getProductList().remove(foundProduct);
         return cart;
     }
