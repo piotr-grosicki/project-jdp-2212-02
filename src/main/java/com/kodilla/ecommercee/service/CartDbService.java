@@ -42,7 +42,7 @@ public class CartDbService {
     public Cart deleteProductFromCart(final Long productId, final Long cartId) throws CartNotFoundException, ProductNotFoundException {
         Cart cart = cartRepository.findById(cartId).orElseThrow(CartNotFoundException::new);
         List<Product> temporaryProductList = cart.getProductList();
-        Product foundProduct = temporaryProductList.stream().filter(a -> a.getProductId().equals(productId)).findAny().orElseThrow(ProductNotFoundException::new);
+        Product foundProduct = temporaryProductList.stream().filter(a -> a.getId().equals(productId)).findAny().orElseThrow(ProductNotFoundException::new);
         cart.getProductList().remove(foundProduct);
         return cart;
     }

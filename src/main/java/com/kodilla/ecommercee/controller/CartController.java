@@ -51,9 +51,9 @@ public class CartController {
     }
 
     @PostMapping(value = "/emptyCard/{userId}")
-    public ResponseEntity<String> createEmptyCart(@PathVariable Long userId) throws UserNotFoundException {
+    public ResponseEntity<Void> createEmptyCart(@PathVariable Long userId) throws UserNotFoundException {
         cartDbService.saveCart(cartMapper.emptyCartMap(userId));
-        return ResponseEntity.ok("Card created for User: " + userId);
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping(value = "/makeOrder/{cartId}")
