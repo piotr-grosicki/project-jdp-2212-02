@@ -8,6 +8,9 @@ import com.kodilla.ecommercee.service.CartDbService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class CartMapper {
@@ -27,7 +30,7 @@ public class CartMapper {
         return cartDto;
     }
 
-    public Cart mapEmptyCart(final Long userId) throws UserNotFoundException {
+    public Cart emptyCartMap(final Long userId) throws UserNotFoundException {
         return new Cart();
     }
 }
