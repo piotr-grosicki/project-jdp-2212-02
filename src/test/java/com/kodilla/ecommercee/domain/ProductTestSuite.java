@@ -43,7 +43,7 @@ public class ProductTestSuite {
 
 
     @Test
-    void saveProduct(){
+    void testSaveProduct(){
 
         //Given
         //When
@@ -71,7 +71,7 @@ public class ProductTestSuite {
     }
 
     @Test
-    void findAllProduct(){
+    void testFindAllProduct(){
         //Given
         Product product2 = setProduct(new Product());
         //When
@@ -89,17 +89,18 @@ public class ProductTestSuite {
     }
 
     @Test
-    void deleteByIdProduct(){
+    void testDeleteByIdProduct(){
         //Given
-        Product product2 = setProduct(new Product());
-        productRepository.save(product);
-        productRepository.save(product2);
-        boolean productExistBefore = productRepository.existsById(2L);
-        //When
-        productRepository.deleteById(2L);
-        //Then
-        boolean productExistAfter = productRepository.existsById(2L);
 
+        productRepository.save(product);
+        Long productId = product.getId();
+
+
+        boolean productExistBefore = productRepository.existsById(productId);
+        //When
+        productRepository.deleteById(productId);
+        boolean productExistAfter = productRepository.existsById(productId);
+        //Then
         Assertions.assertTrue(productExistBefore);
         Assertions.assertFalse(productExistAfter);
         //Clean
