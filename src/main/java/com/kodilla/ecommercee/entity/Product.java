@@ -6,6 +6,8 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
+import java.util.ArrayList;
+
 import java.util.List;
 
 @Builder
@@ -15,6 +17,7 @@ import java.util.List;
 @Setter
 @Entity(name = "products")
 public class Product {
+
     @Id
     @GeneratedValue
     @NotNull
@@ -44,6 +47,7 @@ public class Product {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
+
             name = "orders_has_product",
             joinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "product_id")},
             inverseJoinColumns = {@JoinColumn(name = "ORDER_ID", referencedColumnName = "ORDER_ID")}

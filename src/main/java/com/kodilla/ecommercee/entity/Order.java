@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -30,9 +31,12 @@ public class Order {
     @Column(name = "IS_CONFIRMED")
     private Boolean isConfirmed;
 
+
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "USER_ID")
     private User user;
+
+
 
     @ManyToMany(cascade = { CascadeType.PERSIST })
     @JoinTable(
@@ -41,4 +45,8 @@ public class Order {
             inverseJoinColumns = { @JoinColumn(name = "PRODUCT_ID") }
     )
     private List<Product> products = new ArrayList<>();
+
+
+    public Order(Long id, User userById, LocalDate orderDate, Long id1, List<Product> products, Boolean isConfirmed, Cart card) {
+    }
 }

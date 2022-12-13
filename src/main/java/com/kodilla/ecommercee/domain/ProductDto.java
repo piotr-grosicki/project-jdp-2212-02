@@ -10,7 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 public class ProductDto {
-
     private long id;
     private String name;
     private long id_group;

@@ -24,12 +24,10 @@ public class ProductController {
     public ResponseEntity<List<ProductDto>> GetProducts(){
         return ResponseEntity.ok(productMapper.mapToProductDtoList(productDbService.getAllProducts()));
     }
-
     @GetMapping(value = "{productsId}")
     public ResponseEntity<ProductDto> getProducts(@PathVariable Long productsId) throws  ProductNotFoundException{
         return ResponseEntity.ok(productMapper.mapToProductDto(productDbService.getProduct(productsId).orElseThrow(ProductNotFoundException::new)));
     }
-
 
     @PostMapping()
     public ResponseEntity<Void> createProducts(@RequestBody ProductDto productsDto) throws GroupNotFoundException {
@@ -42,8 +40,8 @@ public class ProductController {
         Product product = productMapper.mapToProduct(productsDto);
         Product savedProduct = productDbService.saveProduct(product);
         return ResponseEntity.ok(productMapper.mapToProductDto(savedProduct));
-    }
 
+    }
     @DeleteMapping(value = "{productsId}")
     public ResponseEntity<Void> deleteProducts(@PathVariable Long productsId){
         productDbService.deleteProduct(productsId);
