@@ -1,13 +1,11 @@
 package com.kodilla.ecommercee.entity;
 
-import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @NoArgsConstructor
@@ -17,6 +15,7 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue
     @NotNull
@@ -41,6 +40,16 @@ public class User {
     @Column(name = "user_blocked")
     private boolean isBlocked;
 
+    @Column(name = "user_activ")
+    private boolean active;
+
+    @Column(name = "Session_Token")
+    private String sessionToken;
+
+    @Column(name = "Session_Started")
+    private LocalDateTime sessionStartTime;
+
+
     @OneToOne(mappedBy = "user")
     private Cart cart;
 
@@ -53,3 +62,4 @@ public class User {
     private List<Order> orderList;
 
 }
+
