@@ -20,7 +20,6 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class OrderTestSuite {
